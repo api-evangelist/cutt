@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: probed
+source: live HTTP probes of cutt.com, www.cutt.com and the observed API host api.zhiyueapp.cn
+summary: >-
+  No /.well-known/ discovery documents were found on any reachable host. The
+  cutt.com apex does not resolve to a reachable HTTPS service, www.cutt.com
+  returns 404 for every probed path, and the live API host api.zhiyueapp.cn
+  (reached via a 301 from zhiyue.cutt.com) returns 404 for every discovery path.
+  Recorded as an honest negative result — no WellKnown or SecurityTxt pointer is
+  wired into apis.yml because no document was found.
+hosts:
+- host: https://cutt.com
+  reachable: false
+  note: apex does not complete a TLS/HTTP connection (curl exit 000)
+  documents:
+  - {path: /.well-known/security.txt, status: 000}
+  - {path: /.well-known/openid-configuration, status: 000}
+  - {path: /.well-known/oauth-authorization-server, status: 000}
+  - {path: /.well-known/api-catalog, status: 000}
+  - {path: /.well-known/ai-plugin.json, status: 000}
+  - {path: /llms.txt, status: 000}
+- host: https://www.cutt.com
+  reachable: true
+  note: resolves and serves, but returns 404 for the site root and every probed path
+  documents:
+  - {path: /, status: 404}
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://api.zhiyueapp.cn
+  reachable: true
+  note: >-
+    live JSON API host reached via 301 from zhiyue.cutt.com; served by APISIX
+    3.4.1, returns HTTP 200 with content-type application/json and
+    content-length 0 on the root. No public documentation surface was found.
+  documents:
+  - {path: /, status: 200}
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /docs, status: 404}
+  - {path: /api, status: 404}
+subdomains_probed:
+- {host: api.cutt.com, resolves: false}
+- {host: developer.cutt.com, resolves: false}
+- {host: docs.cutt.com, resolves: false}
+- {host: dev.cutt.com, resolves: false}
+- {host: open.cutt.com, resolves: false}
+- {host: zhiyue.cutt.com, resolves: true, status: 301, redirects_to: 'https://api.zhiyueapp.cn/'}

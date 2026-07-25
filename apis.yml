@@ -1,19 +1,68 @@
 aid: cutt
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cutt.png
 name: cutt
-description: cutt is a company surfaced as a portfolio company of qiming and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  cutt (cutt.com) is a Chinese technology company surfaced from the published
+  portfolio of Qiming Venture Partners and added to the API Evangelist network
+  as an enrichment lead. As of the 2026-07-20 enrichment pass the company has no
+  reachable public web presence: the cutt.com apex does not complete an HTTPS
+  connection, www.cutt.com returns HTTP 404 for the site root and every probed
+  path, and no developer, documentation, or API subdomain (api./developer./docs./
+  dev./open.) resolves. One surviving subdomain, zhiyue.cutt.com, issues a 301
+  redirect to api.zhiyueapp.cn — a live JSON API host fronted by an APISIX 3.4.1
+  gateway that returns an empty 200 body and publishes no documentation. The
+  zhiyueapp.cn domain is registered to 北京简网生活圈科技有限公司 (Beijing Jianwang
+  Life Circle Technology Co., Ltd.), which appears to be the operating entity
+  behind the cutt.com property. The cutt.com domain itself was created in 2003
+  and remains registered through Alibaba Cloud Computing Ltd. (HiChina) with an
+  April 2027 expiry, so the registration is maintained even though the public
+  site is not being served. No OpenAPI, AsyncAPI, SDK, portal, changelog, status
+  page, or /.well-known/ discovery document could be found on any reachable
+  host. This profile therefore records probed infrastructure evidence only; it
+  carries no fabricated API surface and should be revisited if the company
+  restores a public developer presence.
 url: https://raw.githubusercontent.com/api-evangelist/cutt/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - qiming
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-public-api-surface
+x-operating-entity:
+  name: 北京简网生活圈科技有限公司
+  name_en: Beijing Jianwang Life Circle Technology Co., Ltd.
+  evidence: whois registrant of zhiyueapp.cn, the redirect target of zhiyue.cutt.com
+x-observed-api-hosts:
+- host: https://api.zhiyueapp.cn
+  status: 200
+  gateway: APISIX/3.4.1
+  documented: false
+  reached_via: 301 redirect from https://zhiyue.cutt.com/
+  note: >-
+    Live but undocumented. Not modeled as an apis[] entry because the provider
+    publishes no humanURL, reference, or specification for it.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Venture Backed
+- Qiming Portfolio
+- China
+- Portfolio Lead
+- Unverified API Surface
+- Dormant
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +72,10 @@ maintainers:
 common:
 - type: Website
   url: https://cutt.com
+- type: DomainSecurity
+  url: security/cutt-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
