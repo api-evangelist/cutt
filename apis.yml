@@ -52,7 +52,7 @@ x-observed-api-hosts:
   note: >-
     Live but undocumented. Not modeled as an apis[] entry because the provider
     publishes no humanURL, reference, or specification for it.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 tags:
