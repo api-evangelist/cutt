@@ -64,12 +64,79 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-cutt (cutt.com) is a Chinese technology company surfaced from the published portfolio of Qiming Venture Partners. As of the 2026-07-20 enrichment pass it has **no reachable public web or developer presence** — the apex does not complete an HTTPS connection and `www.cutt.com` returns 404 for every probed path.
+cutt (cutt.com) is a Chinese technology company surfaced from the published portfolio of Qiming Venture Partners and added to the API Evangelist network as an enrichment lead. As of the 2026-07-20 enrichment pass the company has no reachable public web presence: the cutt.com apex does not complete an HTTPS connection, www.cutt.com returns HTTP 404 for the site root and every probed path, and no developer, documentation, or API subdomain (api./developer./docs./ dev./open.) resolves. One surviving subdomain, zhiyue.cutt.com, issues a 301 redirect to api.zhiyueapp.cn — a live JSON API host fronted by an APISIX 3.4.1 gateway that returns an empty 200 body and publishes no documentation. The zhiyueapp.cn domain is registered to 北京简网生活圈科技有限公司 (Beijing Jianwang Life Circle Technology Co., Ltd.), which appears to be the operating entity behind the cutt.com property. The cutt.com domain itself was created in 2003 and remains registered through Alibaba Cloud Computing Ltd. (HiChina) with an April 2027 expiry, so the registration is maintained even though the public site is not being served. No OpenAPI, AsyncAPI, SDK, portal, changelog, status page, or /.well-known/ discovery document could be found on any reachable host. This profile therefore records probed infrastructure evidence only; it carries no fabricated API surface and should be revisited if the company restores a public developer presence.
 
-The one surviving subdomain, `zhiyue.cutt.com`, 301-redirects to `api.zhiyueapp.cn`, a live but undocumented JSON API host behind an APISIX 3.4.1 gateway. The `zhiyueapp.cn` domain is registered to 北京简网生活圈科技有限公司 (Beijing Jianwang Life Circle Technology Co., Ltd.), the apparent operating entity.
+**Areas:** Company · Qiming Portfolio · China · Unverified API Surface · Dormant
 
-No OpenAPI, SDK, portal, changelog, status page, or `/.well-known/` document was found. This repo records probed infrastructure evidence only.
+## cutt on APIs.io
 
-- Website: https://cutt.com (unreachable)
-- Backed by: qiming
-- Artifacts: `security/cutt-domain-security.yml`, `well-known/cutt-well-known.yml`
+Everything profiled for cutt is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cutt/](https://apis.io/providers/cutt/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Cutt Domain Security](https://apis.io/security/cutt/cutt-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://cutt.com)
+
+## API Evangelist rating
+
+**Kin Score 3.4** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 0.0 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cutt/](https://apis.io/providers/cutt/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for cutt: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cutt/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
